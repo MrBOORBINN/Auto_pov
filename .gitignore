@@ -1,0 +1,2 @@
+# build machinery / generated output - only the jar and the README are tracked
+.build/
