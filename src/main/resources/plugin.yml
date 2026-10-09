@@ -1,0 +1,39 @@
+name: GodArmour
+version: '${project.version}'
+main: com.undershards.godarmour.GodArmourPlugin
+api-version: '1.21'
+description: Divine GOD ARMOUR set - 80 HP, infinite potion effects, meteor strikes and godly defence.
+author: undershards
+
+commands:
+  godarmour:
+    description: Manage the GOD ARMOUR set and its abilities.
+    usage: /<command> help
+    aliases: [ga]
+
+permissions:
+  godarmour.use:
+    description: Allows /godarmour, /godarmour help, /godarmour effects toggle and /godarmour recipe.
+    default: true
+  godarmour.equip:
+    description: Allows equipping GOD ARMOUR pieces from your inventory.
+    default: true
+  godarmour.stats:
+    description: Allows viewing your GOD ARMOUR statistics.
+    default: true
+  godarmour.meteor:
+    description: Allows toggling your personal meteor ability.
+    default: true
+  godarmour.give:
+    description: Allows giving GOD ARMOUR pieces to players.
+    default: op
+  godarmour.reload:
+    description: Allows reloading the GOD ARMOUR configuration.
+    default: op
+  godarmour.admin:
+    description: Full administrative access (enable/disable, sethealth, setcooldown, meteor tuning and strikes).
+    default: op
+    children:
+      godarmour.use: true
+      godarmour.give: true
+      godarmour.reload: true

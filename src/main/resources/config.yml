@@ -1,0 +1,144 @@
+# ============================================================
+#  GOD ARMOUR - configuration
+#  Colour codes use '&'. Every number is validated; missing or
+#  invalid values fall back to safe defaults (a warning is
+#  printed to the console when that happens).
+# ============================================================
+
+general:
+  # Master switch. Can also be toggled at runtime with
+  # /godarmour enable or /godarmour disable (runtime only).
+  enabled: true
+
+armour:
+  # Maximum health in HP (2 HP = 1 heart) granted by the set.
+  # 80.0 HP = 40 hearts.
+  max-health: 80.0
+  # true  -> all four pieces are required for the set bonuses.
+  # false -> a single valid GOD ARMOUR piece already activates them.
+  require-full-set: true
+  # Display name applied to every GOD ARMOUR piece.
+  custom-name: "&c&lGOD ARMOUR"
+  # Lore applied to every piece. %max_health% is replaced with
+  # the configured armour.max-health value.
+  lore:
+    - "&7Forged beyond the heavens."
+    - "&8Full set: &c%max_health% HP&8, divine effects"
+    - "&8and a falling &cmeteor&8."
+  # Set to true so the pieces never lose durability.
+  unbreakable: false
+  # Material and enchantments of each piece. Enchantment keys are
+  # Minecraft ids: protection, fire_protection, unbreaking, mending,
+  # thorns, feather_falling, sharpness, ...
+  pieces:
+    helmet:
+      material: NETHERITE_HELMET
+      enchantments:
+        protection: 4
+        unbreaking: 3
+        mending: 1
+    chestplate:
+      material: NETHERITE_CHESTPLATE
+      enchantments:
+        protection: 4
+        unbreaking: 3
+        mending: 1
+    leggings:
+      material: NETHERITE_LEGGINGS
+      enchantments:
+        protection: 4
+        unbreaking: 3
+        mending: 1
+    boots:
+      material: NETHERITE_BOOTS
+      enchantments:
+        protection: 4
+        unbreaking: 3
+        mending: 1
+  recipe:
+    # Optional custom crafting recipe: the base armour piece
+    # surrounded by 8 filler items in a crafting table.
+    enabled: false
+    filler: NETHER_STAR
+
+effects:
+  # Master switch for the infinite potion effects.
+  enabled: true
+  # How often (in ticks, 20 = 1 second) plugin-owned effects are
+  # refreshed before they can expire.
+  refresh-interval-ticks: 40
+  # Every effect can be disabled or re-levelled individually.
+  # "level" is the in-game roman numeral (level 2 = II).
+  list:
+    speed:
+      enabled: true
+      level: 2
+    strength:
+      enabled: true
+      level: 2
+    resistance:
+      enabled: true
+      level: 2
+    fire-resistance:
+      enabled: true
+      level: 1
+    regeneration:
+      enabled: true
+      level: 1
+    jump-boost:
+      enabled: true
+      level: 2
+    night-vision:
+      enabled: true
+      level: 1
+
+meteor:
+  enabled: true
+  # Seconds between two automatic meteor strikes per player.
+  cooldown-seconds: 10
+  # Impact radius in blocks.
+  radius: 5.0
+  # Impact damage in HP (12 HP = 6 hearts).
+  damage: 12.0
+  # Maximum number of simultaneously falling meteors per world.
+  max-active-per-world: 5
+  # Extra knockback strength applied to hit entities (0 disables).
+  knockback: 1.0
+  # Height in blocks above the target where the meteor spawns.
+  fall-height: 15
+  sounds:
+    # Minecraft sound ids. Both "ENTITY_WITHER_SHOOT" and
+    # "entity.wither.shoot" styles are accepted.
+    falling: ENTITY_WITHER_SHOOT
+    impact: ENTITY_GENERIC_EXPLODE
+    volume: 1.0
+    pitch: 1.0
+
+defence:
+  # Damage reduction in percent (0-100). 100 cancels that damage
+  # entirely. Categories:
+  #   fall       -> FALL damage
+  #   fire       -> FIRE, FIRE_TICK and LAVA damage
+  #   projectile -> PROJECTILE damage
+  #   general    -> every other damage cause (only applied when no
+  #                 specific category above matched)
+  fall-damage-reduction: 100
+  fire-damage-reduction: 100
+  projectile-damage-reduction: 25
+  general-damage-reduction: 0
+  # Attribute-based knockback resistance while the set bonus is
+  # active (0.0 - 1.0, where 1.0 = fully immune).
+  knockback-resistance: 1.0
+
+visuals:
+  # Meteor particles and the ambient aura around full-set players.
+  particles: true
+  # Meteor falling/impact sounds.
+  sounds: true
+  # Enchantment glint on the armour pieces.
+  armour-glow: true
+  # Particle used for the ambient aura of full-set players.
+  aura-particle: END_ROD
+
+messages:
+  prefix: "&8[&cGOD ARMOUR&8] "
