@@ -53,6 +53,22 @@ Cancelled events from protection plugins are respected.
 
 ## Building
 
+### Ready-to-use jar
+
+A compiled plugin jar is provided at **`dist/GodArmour-1.0.0.jar`** (Java 21
+bytecode, Paper `api-version: 1.21`). Drop it into your Paper 1.21.x server's
+`plugins/` folder and start the server.
+
+> Note on that jar: it was produced in a network-restricted environment with
+> the Eclipse ECJ 3.46 compiler (`-source/-target 21`) against API stubs whose
+> signatures were verified against the real Paper `ver/1.21.10` sources —
+> because Maven Central / `repo.papermc.io` were unreachable there, it was
+> **not** built with Maven against the official `paper-api` artifact. For
+> maximum assurance, rebuild it yourself with the standard steps below; the
+> output is equivalent.
+
+### Building from source
+
 Requirements: **JDK 21** and **Maven 3.8+** (internet access to
 `repo.papermc.io` and Maven Central).
 
